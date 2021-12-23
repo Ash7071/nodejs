@@ -1,43 +1,49 @@
-const fs = require('fs');
+   /// express is a web framework ///
+   // it's acts like a middleware in nodejs ///
+   // endless the nodejs work as a server ///
+        // it take the request  and process the request and give back the response///
+        // command : npm i nodemon express --save ////
 
-// im going to be  creating a some  json data/// 
+        /// im creating server //////////////////////////////////
 
-const series = {
-    title: "two guns",
-    author: "james"
-};
-/// write file //
-
-// const data = JSON.stringify(series);
-
-// fs.writeFile('series.json', data ,(err, data) => {
-//     if (err)
-//     throw error;
-//        console.log(`file created successfully`);
-// })
-
-  /// read the data/// 
-
-// fs.readFile('series.json', (err,data)=>{
-//     if (err)
-//         throw err;
-//           const output = JSON.parse(data);
-//              console.log(output.author);
+        const express = require('express');
     
-// })
+        const app = express();
 
-// change the data////
+        const port = 3000;
 
- // im converting this data into string///
+        const fs = require('fs');
 
-const data = fs.readFileSync('series.json').toString();    
+        // app.get('/login', (req, res) => {
 
-const jsonData = JSON.parse(data);  /// im converting this data into json ///
+        //     res.send('<h1>welcome to the login page</h1>');
 
-jsonData.title = "Ash";     // now changing data /// 
+        // });
 
-const str_format= JSON.stringify(jsonData);
-         /// now im converting this data into string///
-fs.writeFileSync('series.json', str_format);
+        // app.get('/', (req, res) => {
 
+        //     res.send('<h1>Welcome to the express</h1>');
+        // });
 
+        app.get('/products', (request, response)=>{
+
+            fs.readFile('products.json',(err,data)=>{
+
+                if(err){
+                    throw err;
+                } else {
+                       response.send(JSON.parse(data));
+                }
+                
+            });
+        });
+
+        app.listen(port ,(err)=>{
+
+            if(err)
+
+             throw err;
+
+            console.log('my server is running on port : ${3000}');
+
+        });
