@@ -1,0 +1,65 @@
+    call stack 
+
+    ---> call stack is a data structure ,and it is temporary storage data and manage function.....
+
+    ---> LIFO in First out  
+
+    ---> when you push the function into the stack , when you pop the function from the stack then the function
+         only the function executing. this kind of manage know as a call stack.....
+
+
+         example: 
+
+         const listOfUsers=(names)=>{
+              names.foreach((name)=>{
+                  console.log(name)
+              })
+         }
+
+         const users=['jon', 'jim']
+              listOfUsers(users);
+
+
+
+              callback: 
+
+              ----> callback is a function passed to the another callback function.
+
+
+              callback Queue: 
+                
+                ----> maintains a list of callback functions that are ready to be executed.
+
+                event loop: 
+
+                  ---->ensures the execution of the callback function after the call stack gets empty.....
+
+
+
+                  example: 
+
+                  console.log("im in nodejs class")
+
+                  setTimeout(()=>{
+                        console.log("welcome to the nodejs")
+                  }10000);
+                   setTimeout(()=>{
+                        console.log("welcome to the nodejs")
+                  }5000);
+
+                  setTimeout(()=>{
+                      console.log("this is my second nodejs class");
+                  }0);
+
+                  console.log("this is my nodejs");
+
+
+                  callback abstraction: 
+
+                  const sum =(a,b,cd)=>{
+                      cd(a+b)
+                  }
+
+                    sum = (10,22,(result)=>{
+                        console.log("sum "+result)
+                    });

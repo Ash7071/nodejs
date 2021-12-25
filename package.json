@@ -1,15 +1,12 @@
 {
-  "name": "node3",
+  "name": "callstack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"node app.js"
+    "dev": "node app.js"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "nodemon": "^2.0.15"
-  }
+  "license": "ISC"
 }
